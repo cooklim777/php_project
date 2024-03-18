@@ -4,23 +4,23 @@
  * 空白在網頁中會自動被壓縮
  * php 的特殊字元 需使用跳脫字元
  */
-$lastMonthCost = 100;
-$thisMonthCost = 10;
-for ($i = 0; $i < 40; $i++) {
-    $thisMonthCost = 60 + $i * 2;
-    caculateCostGrowth($lastMonthCost, $thisMonthCost);
-    echo "\n";
-}
+// $lastMonthCost = 100;
+// $thisMonthCost = 10;
+// for ($i = 0; $i < 40; $i++) {
+//     $thisMonthCost = 60 + $i * 2;
+//     caculateCostGrowth($lastMonthCost, $thisMonthCost);
+//     echo "\n";
+// }
 // caculateCostGrowth("text", 177);
-caculateCostGrowth(1, 100000);
+caculateCostGrowth(100000, 95001);
 echo "\n";
-caculateCostGrowth(100000, 1);
-echo "\n";
-caculateCostGrowth(200, 177);
-echo "\n";
-caculateCostGrowth(9999, 9999);
-echo "\n";
-caculateCostGrowth(1000, 12345);
+// caculateCostGrowth(100000, 1);
+// echo "\n";
+// caculateCostGrowth(200, 177);
+// echo "\n";
+// caculateCostGrowth(9999, 9999);
+// echo "\n";
+// caculateCostGrowth(1000, 12345);
 function caculateCostGrowth($lastMonthCost, $thisMonthCost)
 {
     if (!is_numeric($lastMonthCost) || !is_numeric($thisMonthCost)) {
@@ -30,7 +30,7 @@ function caculateCostGrowth($lastMonthCost, $thisMonthCost)
         throw new Exception("怎麼會有負的費用！！");
     }
 
-    if ($thisMonthCost == $lastMonthCost) {
+    if ($thisMonthCost === $lastMonthCost) {
         echo "   0.00%";
     } else {
         $rate = ($thisMonthCost - $lastMonthCost) / $lastMonthCost * 100;
@@ -41,6 +41,8 @@ function caculateCostGrowth($lastMonthCost, $thisMonthCost)
         // $formattedRate = str_replace(' ', '&nbsp;', $formattedRate);
         $text = "";
 
+        $rate = number_format($rate, 2);
+        // echo $rate;
         // 例外處裡
         if ($rate >= 10000) {
             echo "花太多錢了吧 破表了！！！";
