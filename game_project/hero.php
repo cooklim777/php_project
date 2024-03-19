@@ -3,6 +3,7 @@ require 'character.php';
 
 class Hero extends Character
 {
+    public $stage = 1;
     public function addAttribute($attribute)
     {
         if ($attribute == 1) {
@@ -36,5 +37,4 @@ class Mage extends Hero
     public $magic_attack = 5;
 }
 
-?>
 ?>
